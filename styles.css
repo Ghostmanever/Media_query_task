@@ -1,0 +1,74 @@
+/* --- Base Styling (Applies to all screens) --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px auto; /* Centering the table */
+    font-size: 0.9em;
+    min-width: 300px; /* Ensures it looks okay on small devices */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: white;
+}
+
+/* Table Header Styles */
+thead tr {
+    background-color: #f9e29f; /* The light yellow/gold color from the image */
+    color: #333;
+    text-align: left;
+    border-bottom: 2px solid #e0c87d;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+/* Table Body Styles */
+tbody tr {
+    border-bottom: 1px solid #eeeeee;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #e0c87d;
+}
+
+
+/* --- Mobile View Settings (Default - less than 768px wide) --- */
+
+/* Hiding columns to achieve the 2-column view on mobile.
+   We will keep the 1st column (Number) and the 4th column (Student ID) visible.
+   We hide the 2nd, 3rd, and 5th columns. */
+thead th:nth-child(2), /* Full Name header */
+tbody td:nth-child(2), /* Full Name data */
+thead th:nth-child(3), /* Course header */
+tbody td:nth-child(3), /* Course data */
+thead th:nth-child(5), /* Year header */
+tbody td:nth-child(5) { /* Year data */
+    display: none;
+}
+
+
+/* --- Web/Desktop View (Full Table) using Media Query --- */
+/* Show the full table on screens wider than 768px */
+@media screen and (min-width: 768px) {
+    /* Set all table cells and headers back to their default table display type */
+    thead th, 
+    tbody td {
+        display: table-cell !important;
+    }
+}
